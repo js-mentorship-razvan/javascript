@@ -30,7 +30,7 @@ There are two limitations for a variable name in JavaScript:
 1. The name must contain only letters, digits, symbols `$` and `_`.
 2. The first character must not be a digit.
 
-*When the name contains multiple words, [camelCase](https://en.wikipedia.org/wiki/Camel_case) is used. Meaning each word starts with a capital letter : `myNameIsRazvan`.
+*When the name contains multiple words, [camelCase](https://en.wikipedia.org/wiki/Camel_case) is used. Meaning each word starts with a capital letter : `myNameIsRazvan`.*
 
 
 ## Constants 
