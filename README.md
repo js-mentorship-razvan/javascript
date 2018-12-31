@@ -124,7 +124,7 @@ console.log(age); // output will be *undefined*
 *`symbol`is used to create unique identifiers for objects*
 
 
- ### typeof operator
+### typeof operator
 
  `typeof` returns the type of the argument. It can be used with or without parantheses and the result will be the same.
 
@@ -134,3 +134,21 @@ console.log(age); // output will be *undefined*
  typeof 'animal' // output will be "string"
  typeof '241.94' // output will be "string"
  typeof 95 // output will be "number"
+ ```
+
+
+
+## Type Conversions 
+
+### ToString
+
+*is used to convert a value to a string form* Example: 
+
+```javascript
+let name = true;
+alert(typeof name); // output will be 'boolean'
+
+name = String(name); // output will be a string 'true'
+alert(typeof name); // output will be 'string'
+```
+
