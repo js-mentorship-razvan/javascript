@@ -142,7 +142,9 @@ console.log(age); // output will be *undefined*
 
 ### ToString
 
-*is used to convert a value to a string form* Example: 
+*is used to convert a value to a string form* 
+
+Example: 
 
 ```javascript
 let name = true;
