@@ -119,7 +119,7 @@ console.log(age); // output will be *undefined*
 
 *`object` is a special data type used to store collections of data.*
 
-7.__symbol__
+7. __symbol__
 
 *`symbol`is used to create unique identifiers for objects*
 
