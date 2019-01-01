@@ -8,13 +8,13 @@
 
  __let__ variables allow you to change the assigned value, whereas __const__ variables cannot be changed later in code.
 
-Example no. 1 using `let`: 
+Example no. 1: 
 
 ```javascript
 let message = 'Hello!'; // define the variable and assign the value
 ``` 
 
-Example no. 2 using `let`:
+Example no. 2:
 
 *We can also declare multiple variables*
 
@@ -154,3 +154,40 @@ name = String(name); // output will be a string 'true'
 alert(typeof name); // output will be 'string'
 ```
 
+### ToNumber
+
+*In mathematical functions and expressions, numeric conversion happens automatically*
+
+*`Number(value)` function is used to convert a value. For example:*
+
+```javascript
+let word = '88';
+alert(word); // output will be a string
+
+let wordToNumber = Number(word); 
+console.log(wordToNumber); // output will be a number : 88 
+```
+
+#### Numeric Conversion
+
+```javascript
+alert( Number(   " 999 "   )); // output will be a number : 999
+alert( Number("765z"));        // output will be : NaN(not a number) because of 'z' letter at the end
+alert( Number(true));          // output will be a number : 1 
+alert( Number(false));         // output will be a number : 0
+```
+
+All mathematical operations convert values to numbers, except `+`. If one of the value has a string form, the other values are also converted to string when using `+` operator. Example: 
+
+```javascript
+alert ('54' + 26); // output will be a string : '5426'
+```
+
+### ToBoolean
+
+*Any value that's 'empty' fe: 0, an empty string, null, undefined, NaN become `false`. All other values convert to `true`.* Example:
+
+```javascript
+alert( Boolean(41)); // output will be true
+alert( Boolean("")); // output will be false
+```
