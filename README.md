@@ -322,3 +322,19 @@ These `++` and `--` operators can be placed both after and before the variable. 
 - If the result of increment/decrement is used now, we need the prefix form;
 - If we need to use the old result, then we need the postfix form. 
 
+
+#### Modify-in-place
+
+It is used to store the new result of an operator applied to a variable. Example:
+
+```javascript
+let f = 5;
+f = f + 6; // result is 11 ( 5 + 6)
+f = f * 2; // result is 22 ( 11 * 2)
+``` 
+We can write the same lines of code using `+=` and `*=` operators: 
+
+```javascript 
+let f = 5;
+f += 6; // 11 ( same as above where f = f + 6 )
+f *= 2; // 22 ( same as above where f = f * 2 )
