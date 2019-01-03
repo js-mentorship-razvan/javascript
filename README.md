@@ -191,3 +191,134 @@ alert ('54' + 26); // output will be a string : '5426'
 alert( Boolean(41)); // output will be true
 alert( Boolean("")); // output will be false
 ```
+
+
+
+## Operators
+
+Most operators are similar to the ones we used in school, like : `+` to add, `*` to multiply, `-` to subtract, etc.
+
+
+#### Terms: "unary", "binary", "operand"
+
+Operators are applied to __operands__ Example: ` 9 * 7 `  -> we have left operator which is 9 and right operandor which is 7.
+Operands are also sometimes called 'arguments'.
+
+__unary__ means that an operator has a single operand. 
+
+```javascript
+let dry=5
+dry = -5;
+console.log(dry); // output will be -5 and the operator is unary 
+```
+
+__binary__ means that an operator has 2 operands.
+
+```javascript
+let a = 5, b = 8;
+console.log(a-b); // output will be -3 and the operator is binary
+```
+
+
+#### Strings concatenation, binary + 
+
+If `+` is applied to strings, it concatenates (merges) them. Example:
+
+```javascript
+let razvan = 'my' + ' name';
+console.log(razvan); // my name
+```
+
+Note: If either operand is a string, then the output will be a string too and the operations run from left to right. Example:
+
+```javascript
+alert(4+2+'6'); // '66' and not '426' 
+``` 
+
+#### Numeric conversion, unary +
+
+Unary + or `+` operator when applied to an operand that is not a number, it converts it into one. Example:
+
+```javascript
+let great = 2;
+alert(+great); // 2 . Nothing happens because the operand is a number
+
+let amazing = true;
+alert(+amazing); // 1 . It has changed it into a number
+```
+
+It acts the same as `Number(..)`, but its shorter. Example:
+
+```javascript
+let beers = 6;
+let wine = 2;
+alert(+beers + +wine); // 8
+alert(Number(beers) + Number(wine)); // 8 - same output, longer variant.
+```
+
+#### Operators precedence
+
+Just like in school where multiplication is calculated first in this example `2 + 5 * 9`, the __higher precedence__ acts the same in JavaScript. 
+
+Parantheses override any precedence and we can learn more about order [in here].(https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence) 
+
+#### Assignment
+
+An assignment `=` is also an operator. It is possible to do simple calculations and even chain assignments. Example:
+
+```javascript
+let i = 8 * 8 + 9;
+alert(i); // 73  - simple calculation that returns a value stored in 'i' 
+```
+
+```javascript
+let i,f,g;
+i = f = g = 8 * 8;
+alert(i); // 64
+alert(g); // 64
+```
+
+#### Remainder %
+
+The results of `b % c` is the _remainder_ of the integer division of `b` by `c`. Example: 
+
+```javascript
+alert (8 % 3); // 2 is the remainder of 8 divided by 3
+```
+
+#### Exponentiation **
+
+The exponentiation operator `**` works for both integer and non-integer numbers. `b ** c` is `b` multiplied by itself `c` times. Example:
+
+```javascript
+alert ( 5 ** 5 ); // 3125
+alert ( 2 ** 3 );  // 8
+alert ( 9 ** (1/2) ); // 3 (power of 1/2 is the same as a square root from maths)
+```
+
+#### Increment/decrement
+
+`++` increment increases a variable by 1:
+
+```javascript
+let measure = 5;
+measure ++; 
+alert(measure); // 6 
+```
+
+`--` decrement decreases a variable by 1:
+
+```javascript
+let measure = 5;
+measure --;
+alert(measure); // 4 
+```
+
+__Increment and decrement can only be applied to a variable!__
+
+These `++` and `--` operators can be placed both after and before the variable. When used before the variable its called "prefix form" and if used after the variable its called "postfix form". 
+
+- If the result of increment/decrement is not used, then both forms gives the same results;
+- If the result of increment/decrement is used now, we need the prefix form;
+- If we need to use the old result, then we need the postfix form. 
+
