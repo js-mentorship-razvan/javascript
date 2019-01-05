@@ -260,7 +260,7 @@ alert(Number(beers) + Number(wine)); // 8 - same output, longer variant.
 
 Just like in school where multiplication is calculated first in this example `2 + 5 * 9`, the __higher precedence__ acts the same in JavaScript. 
 
-Parantheses override any precedence and we can learn more about order [in here].(https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence) 
+Parantheses override any precedence and we can learn more about order [in here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence) 
 
 #### Assignment
 
