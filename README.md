@@ -302,7 +302,7 @@ alert ( 9 ** (1/2) ); // 3 (power of 1/2 is the same as a square root from maths
 
 ```javascript
 let measure = 5;
-measure ++; 
+measure++; 
 alert(measure); // 6 
 ```
 
@@ -310,7 +310,7 @@ alert(measure); // 6
 
 ```javascript
 let measure = 5;
-measure --;
+measure--;
 alert(measure); // 4 
 ```
 
@@ -321,6 +321,19 @@ These `++` and `--` operators can be placed both after and before the variable. 
 - If the result of increment/decrement is not used, then both forms gives the same results;
 - If the result of increment/decrement is used now, we need the prefix form;
 - If we need to use the old result, then we need the postfix form. 
+
+Examples: 
+
+```javascript
+let distance = 6;
+let newDistance = ++distance;
+alert(newDistance); // 7 - it returns the new value
+```
+
+```javascript
+let distance = 6
+let newDistance = distance++;
+alert(newDistance); // 6 - it returns the old value
 
 
 #### Modify-in-place
