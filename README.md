@@ -334,7 +334,7 @@ alert(newDistance); // 7 - it returns the new value
 let distance = 6
 let newDistance = distance++;
 alert(newDistance); // 6 - it returns the old value
-
+```
 
 #### Modify-in-place
 
@@ -351,3 +351,4 @@ We can write the same lines of code using `+=` and `*=` operators:
 let f = 5;
 f += 6; // 11 ( same as above where f = f + 6 )
 f *= 2; // 22 ( same as above where f = f * 2 )
+```
