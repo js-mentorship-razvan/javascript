@@ -352,3 +352,50 @@ let f = 5;
 f += 6; // 11 ( same as above where f = f + 6 )
 f *= 2; // 22 ( same as above where f = f * 2 )
 ```
+
+## Comparisons
+
+Some comparisons signs are similar to those we have in maths, like:
+
+* Greater/ less than : ``` a > b ``` and ``` a < b ```;
+* Greater/ less than or equals : ``` a >= b ``` and ``` a <= b ```;
+* Equals : ``` a == b ``` //  notice the difference between = and double == ; 
+* Not equals : ``` a != b ``` 
+
+#### Boolean comparison
+
+A comparison returns a value, in this case the returned value is a boolean. Example:
+
+```alert ( 2 > 1 ); // true ```
+
+```let dog = 5 != 4; 
+alert(dog); // true because 5 is does not equal 4
+```
+
+#### String comparison
+
+Strings are compared letter by letter in JavaScript according to [Unicode order](https://www.w3.org/TR/xml-entity-names/bycodes.html). Example:
+
+``` alert ( 'Razvan' > 'Andrei' ); // true because R > A ```
+
+#### Different types comparison
+
+Values are converted to numbers when different types are compared. For boolean ```true``` becomes ```1``` and ```false``` becomes ```0```. Example:
+
+```alert ( true == 1 ); // true because 1 = 1 ```  <- boolean compared with number;
+
+```alert ( 5 == '5' ); // true because string is converted to number``` <- string compared with number;
+
+#### Strict equality
+
+A strict equality check ```===``` compares values without any type conversion. It is used because equality check ```==``` cannot differentiate ```0``` from ```false``` or an empty string ```''``` from ```false```
+
+#### Comparison with null and undefined 
+
+__If we use ```==``` for ```null``` and ```undefined```, the result will be ```true``` and they don't equal anything else when checked for equality!__
+
+```alert(null==undefined)``` 
+
+*This is only true when we check for equality.*
+
+When checked for other comparisons, ```null``` becomes ```0``` and ```undefined``` becomes ```NaN```
