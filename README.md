@@ -361,12 +361,17 @@ Some comparisons signs are similar to those we have in maths, like:
 * Greater/ less than or equals : ``` a >= b ``` and ``` a <= b ```;
 * Equals : ```a == b``` //  notice the difference between = and double == ; 
 * Not equals : ```a != b``` 
+* Greater/ less than : ``` a > b ``` and ``` a < b ```;
+* Greater/ less than or equals : ``` a >= b ``` and ``` a <= b ```;
+* Equals : ``` a == b ``` //  notice the difference between = and double == ; 
+* Not equals : ``` a != b ``` 
 
 #### Boolean comparison
 
 A comparison returns a value, in this case the returned value is a boolean. Example:
 
 ```alert ( 2 > 1 ); // true```
+```alert ( 2 > 1 ); // true ```
 
 ```let dog = 5 != 4; 
 alert(dog); // true because 5 is does not equal 4
