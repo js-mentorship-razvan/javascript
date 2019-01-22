@@ -419,7 +419,7 @@ alert('My name is Razvan');
 
 #### prompt 
 
-`Prompt` accepts two arguments and it gives the user the possibility to input something. In this case, the modal window will have a *text* message that is seen by the user and a *default* parameter which is the initial value for the imput field and is optional. Example: 
+`prompt` accepts two arguments and it gives the user the possibility to input something. In this case, the modal window will have a *text* message that is seen by the user and a *default* parameter which is the initial value for the imput field and is optional. Example: 
 
 ```javascript
 let dog = prompt('How many dogs do you have?', 1);  // string being the displayed text and 1 the initial value
@@ -428,9 +428,80 @@ alert(`You have ${dog} dog/s`);
 
 #### confirm
 
-`Confirm` displays a modal window with a question and two buttons : OK and Cancel. It returns `true` if OK is pressed and `false` otherwise. Example:
+`confirm` displays a modal window with a question and two buttons : OK and Cancel. It returns `true` if OK is pressed and `false` otherwise. Example:
 
 ```javascript
 let question = confirm('Is the computer you are typing from yours?');
 alert(question); // true if OK is pressed, false otherwise.
 ```
+
+## Conditional operators: if, "?" 
+
+We use `if` and `?` when we need to execute some actions based on some conditions. 
+
+When condition is `true` inside an `if` statement, the engine will execute the block of code inside the `{}`. For example: 
+
+```javascript
+let myName = 'Razvan';
+if (myName !== 'Razvan') {
+    return 'Nah, try again, please.';
+}
+```
+
+The `if` statement evaluates the expression in ith parentheses and converts the result to a boolean. 
+
+#### The "else" clause 
+
+`else` block is an optional keyword for `if` statements. It is only executed when the condition is `false`. For example: 
+
+```javascript
+let iphone = prompt('What is the name of the company that produces iphone smartphones?');
+if (iphone == 'Apple') {
+    return 'Well done!';
+} else {
+    return 'That is not quite right.'
+}
+}
+```
+
+#### Several conditions: "else if"
+
+In case we want to test more than one condition, `else if` is used and it allows us to do just that. 
+
+#### Ternary operator "?"
+
+Ternary operator `?` lets us assign a variable depending on a condition. It is also the only operator in JavaScript that has three operands.
+Example:
+
+```javascript
+let question = condition ? value1 : value; // this is how the syntax looks
+```
+
+```javascript
+let accessAllowed;
+let location = prompt('Are you from Europe?', '');
+
+if (location == 'yes') {
+  accessAllowed = true;
+} else {
+  accessAllowed = false;
+}
+
+alert(accessAllowed);
+```
+
+#### Multiple "?"
+
+A sequence of question mark operators `?` can return a value that depends on more than one condition. Example: 
+
+```javascript
+let location = prompt('Where are you from?', 'Europe') 
+
+let message = (location == 'Europe') ? 'Welcome' :
+  (location == 'US') ? 'Wazzap, Mr. Trump?' : 
+  (location == 'Asia') ? 'I hope I can learn chineese some day' :
+  'Never been there before.';
+
+  alert(message);
+  ```
+  
