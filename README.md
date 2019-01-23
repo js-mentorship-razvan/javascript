@@ -504,4 +504,57 @@ let message = (location == 'Europe') ? 'Welcome' :
 
   alert(message);
   ```
-  
+
+
+  ## Logical operators
+
+  In JavaScript, there are three logical operators `||` (OR), `&&` (AND), `!` (NOT). They can be applied to values of any type!
+
+  #### || (OR)
+
+   The 'OR' operator is represented by two vertical line symbols `||`. It's job is to look for any `true` value and it will return `true` when it finds it, otherwise will return `false`. 
+
+```javascript
+let a = 1;
+let b = 0; 
+alert (a || b); // will return 1 becasue is true and 0 is false;
+```
+
+The OR operator is converting everything to boolean, then is looking for the first `true` value and returns it. If no such value is found, it returns the last value. Example: 
+
+```javascript
+let name = undefined;
+let nob = null; 
+let age = 0; 
+
+alert (undefined || null || 0); // will return 0 because none of these values are true when converted to boolean.
+```
+
+#### && (AND)
+
+The AND operator is represented by two ampersands `&&`. This operator will return `true` if all operands are truthy and `false` otherwise. When a falsy value is found, it will return the first value, no matter how many falsy values we have. 
+
+The AND operator evaluates operands from left to right ( like OR), then converts all values to boolean and compare them (like OR) and returns the original value of the first falsy value when found. If all values are truthy, it returns the original value of the last operand. Examples:
+
+```javascript
+let hour = 15;
+let minute = 35;
+
+if (hour == 15 && minute == 35) {
+  alert( 'The time is 15:35' ); // - Will return this string because both values are truthy
+}
+```
+
+```javascript
+alert (1 && 0 && null && undefined); // will return 0 because that is the first falsy value.
+```
+
+## Precedence of AND `&&` is HIGHER than OR `||`
+
+#### ! (NOT)
+
+The NOT operator is represented by exclamation sign `!`. It accepts a single argument and converts the operand to boolean and returns the inversed value. Example: 
+
+```javascript
+alert ( !1 ); // will return false because 1 is true, and the inversed value of true is false
+``` 
