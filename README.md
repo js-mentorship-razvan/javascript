@@ -558,3 +558,89 @@ The NOT operator is represented by exclamation sign `!`. It accepts a single arg
 ```javascript
 alert ( !1 ); // will return false because 1 is true, and the inversed value of true is false
 ``` 
+
+## Loops: while and for
+
+Loops are a way to repeat the same code multiple times.
+
+#### "while" loop 
+
+While the condition (what is inside the parantheses) is `true`, the code that is inside the body loop is executed. Example : 
+
+```javascript
+let i = 5; 
+while (i);
+alert (i); // code will show 4,3,2,1 then it stops because 0 is falsy and so the condition is not met anymore;
+i--;
+```
+
+The above code can be written like this too: 
+
+```javascript
+let i = 5;
+while (i < 5) {
+    alert (i);
+    i--;
+}
+```
+
+`i++` or `i--` is used so that the loop will know when to stop, otherwise we will have an infinite loop and our code won't work properly. 
+
+#### "do...while" loop 
+
+When using this loop, the code will execute first time without checking any conditions, only after running once will check the condition and if `true` will run again, else will stop. Example : 
+
+```javascript
+let i = 5; 
+do {
+    alert(i);
+    i--;
+} while (i > 2); // code will show 5,4 and 3 because 2 = 2 and condition becomes falsy.
+```
+
+This condition is used when we want to execute the code once regardless of the condition. But, the preferred loop is `while(...) {...}`.
+
+#### "for" loop
+
+This is the most used loop. This loop contains `(begin; condition; step)` and then it has the code inside the body. 
+
+This is how it works: 
+1. Run begin;
+2. if condition is true -> run body and run step;
+3. if condition is true -> run body and run step;
+4. and so on until condition becomes falsy.
+
+Any part of the `for` loop can be skipped. If we delete all parts, then we will have an infinite loop : 
+```javascript
+for (;;){
+    // repeats without limits
+}
+```
+Example of for loop: 
+
+```javascript
+for (let i = 0; i < 5; i++) {
+    alert(i); // code will show 0,1,2,3,4 and stops when it gets to 5 because condition becomes falsy
+}
+```
+
+The condition becoming falsy is NOT the only way to stop a loop. Using the special `break` directive will achieve the same result. Example: 
+
+```javascript
+for (let i = 0; i < 5; i++) {
+    if ( i == 3) break;
+    alert(i);
+}
+alert(" This string will show when break is activated. ");
+```
+
+When `break` is activated, the engine will execute the next line of code after the loop. See above.
+
+Another special directive is `continue` which is a ligher version of `break`. When `continue` is activated, the loop won't be stoped all together, but instead, it just stops the current iteration and forces the loop to start a new one if condition is truthy. Example: 
+
+```javascript
+for (let i = 0; i < 14; i++) {
+    if (i % 2 !== 0) continue;
+    alert(i); // will show 0,2,4,6,8,10,12
+}
+```
