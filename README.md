@@ -644,3 +644,44 @@ for (let i = 0; i < 14; i++) {
     alert(i); // will show 0,2,4,6,8,10,12
 }
 ```
+
+
+## The "switch" statement
+
+A `switch` statement can be a replacement for multiple "if" checks. It contains one or more `case` blocks and an optional `default`.
+
+Example:
+
+```javascript
+let a = 2 + 8;
+
+switch (a)  {
+    case 1:
+    alert ('Way to small');
+    break;
+    case 5:
+    alert ('You are getting closer but still small');
+    break;
+    case 9:
+    alert ('Really hot!');
+    break;
+    case 10:
+    alert ('You got it!');
+    break;
+
+    default:
+    alert ('What value is that?!');
+}
+```
+Let's examine how the `switch` statement works: 
+1. a = 10 as described in our global variable above.
+2. Now , the switch starts to replace `a` value in every case and it compares the values.
+3. It runs every case until a match is found.
+4. When the match is found, it executes the line of code for that case.
+5. If there is a `break;` statement, then it stops. 
+6. If there is no `break;` statement after the match, it keeps executing the next cases without stopping.
+7. In case of *no match*, then the `default` code is executed.
+
+Very important: **Any expression can be a `switch/ case` argument!!!**
+
+
