@@ -714,11 +714,11 @@ Now let's explain the function above and how it works :
 Example of function with parameters(also called arguments): 
 
 ```javascript
-function opps(a, b) {
+function sum(a, b) {
     alert (a + b);
 }
-opps(8, 2); // output will be 10 
-opps(21, 4); // output will be 25
+sum(8, 2); // output will be 10 
+sum(21, 4); // output will be 25
 ```
 
 As we  can see in the example above, the arguments `a` and `b` are given some values and the function executes the code `alert (a + b)`.
