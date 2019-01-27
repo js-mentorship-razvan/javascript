@@ -682,6 +682,86 @@ Let's examine how the `switch` statement works:
 6. If there is no `break;` statement after the match, it keeps executing the next cases without stopping.
 7. In case of *no match*, then the `default` code is executed.
 
-Very important: **Any expression can be a `switch/ case` argument!!!**
+Very important :
+1. **Any expression can be a `switch/ case` argument!!!**
+2. **The equality check is always strict! Values must be the same type to match.**
 
 
+
+## Functions
+
+Functions allow users to write code that can be used in many places of the script. They allow the code to be called many times without repetition. Some built-in functions include `alert(message)`, `prompt(message, default)` and `confirm(question)`. Let's see how we can create functions of our own.
+
+Example of a simple function : 
+
+```javascript
+function hiThere() {
+    alert('Hello and welcome! I hope you will enjoy your time with us!');
+}
+hithere();
+hithere(); 
+hithere();
+```  
+
+Now let's explain the function above and how it works :
+1. A function starts with the `function` keyword followed by the name, in this case we named our function `hiThere`.
+2. After it's name, in parentheses we can include parameters. Parameters are usually generic, so that we can use the function with multiple values without writing it again, this is the whole purpose of a function in the first place.
+3. Then, in between the curly brakes `{}` we write the "function body" which is nothing else than the code that the function will execute.
+4. To call a function, we write it's name and the given parameters outsite it's body. Just like above. 
+
+*Functions can use global variables or have they own local variables. The difference between them is that local variables can only be used inside the function whereas the global ones can be used anywhere in our code.*
+
+Example of function with parameters(also called arguments): 
+
+```javascript
+function opps(a, b) {
+    alert (a + b);
+}
+opps(8, 2); // output will be 10 
+opps(21, 4); // output will be 25
+```
+
+As we  can see in the example above, the arguments `a` and `b` are given some values and the function executes the code `alert (a + b)`.
+
+### Returning a value
+
+A function accepts `return` directives in any place, multiple times if needed. For example :
+
+```javascript
+function checkAge(age) {
+  if (age > 18) {
+    return true;
+  } else {
+    return confirm('Do you have permission from your parents?');
+  }
+}
+
+let age = prompt('How old are you?', 18);
+
+if ( checkAge(age) ) {
+  alert( 'Access granted' );
+} else {
+  alert( 'Sorry, try again when you are 18+' );
+}
+```
+
+*Some important information about functions:*
+
+* When naming a function, you should use a verb, because functions usually represents actions.
+* A function name should be very brief and intuitive, such as `get`, `calc`, `show`, `create` etc.
+* Never add a newline between `return` statement and the value. This is because in JS, it assumes a semicolon after `return` and the code will stop there. 
+* A function with an empty `return` or without it, returns `undefined`  
+ Example: 
+ ```javascript
+ function doNothing() {
+    // empty in here
+ } 
+alert (doNothing() === undefined ); // will return true!
+``` 
+```javascript
+function doNothing() {
+    return;
+}
+alert (doNothing() === undefined ); // will return true as well
+```
+* A function should do exactly what is suggested by its name and no more. One function = One action
