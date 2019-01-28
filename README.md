@@ -765,3 +765,97 @@ function doNothing() {
 alert (doNothing() === undefined ); // will return true as well
 ```
 * A function should do exactly what is suggested by its name and no more. One function = One action
+
+
+
+## Function expressions and arrows
+
+Functions have 3 types of syntax in JavaScript. We have just seen _function declaration_ above, now we will dive intro _function expression_ and _arrow functions_. 
+
+This is how the syntax for *Function Declaration* looks like: 
+
+```javascript
+function sayHi() {
+    alert ('Salut');
+} 
+```
+Now let's see the syntax for *Function Expression*: 
+
+```javascript
+let sayHi = function() {
+    alert ('Salut');
+};
+``` 
+
+And finally, the syntax for *Arrow Function*:
+
+```javascript
+let func = (arg1, arg2, ...argN) => expression
+```
+
+Which is equivalent to this, but is much more concise: 
+
+```javascript
+let func = function(arg1, arg2, ...argN) {
+    return expression;
+}
+``` 
+
+### *Now let's see when to use what kind of function and why*
+
+1. As a rule of thumb, *Function Declaration* is the preferred syntax used in JavaScript. This is because it looks clean and it's easy to look up to and also we can call such functions before they are declared!
+2. If a *Function Declaration* doesn't suit us for some reason, then we can use *Function Expressions* instead.
+3. Arrow functions are handy for mostly one-line actions and callbacks. 
+
+### Function Expressions
+
+Function Expressions are created when the execution reaches them. 
+
+**When a Function Declaration is made within a code block, it is visible everywhere inside that block, but NOT outside of it.**
+
+Let's see an example with Function Expression: 
+
+```javascript
+let age = prompt("What is your age?", 18);
+
+let welcome;
+
+if (age < 18) {
+  welcome = function() {
+    alert("Hello!");
+  };
+
+} else {
+  welcome = function() {
+    alert("Greetings!");
+  };
+}
+welcome(); 
+``` 
+
+In the example above, the code runs as expected because Function Expressions is stored in a variable that is outside of `if` and has global visibility. 
+
+
+### Arrow functions
+
+This type of functions are handy for one-liners (actions and callbacks) and they come in two types: 
+- Without curly braces `(...args) => expression` - the right side is an expression. The function evaluates it and returns the result.
+- With curly braces: `(...args) => { body }` - brackets allow us to write multiple statements inside the function, but we need to have a `return` statement to return something.
+
+Example of arrow function: 
+
+```javascript
+let sum = (a, b, c) => {
+    let result = a + b + c;
+    return result;
+}
+alert( sum(1, 5, 4) ); // 10
+``` 
+
+And now an example without curly braces:
+
+```javascript
+let sum = (a, b, c) => a + b + c;
+alert( sum(1, 5, 4) ); // 10
+```
+
