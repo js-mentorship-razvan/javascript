@@ -859,3 +859,55 @@ let sum = (a, b, c) => a + b + c;
 alert( sum(1, 5, 4) ); // 10
 ```
 
+
+## JavaScript specials - Recap
+
+#### Code structure
+
+Statements are delimited with a semicolon: 
+```javascript
+alert('Hi, I am Razvan'); alert('This is a new statement');
+```
+
+*Semicolons are not required after code blocks `{}` and syntax constructs with them like loops:*
+```javascript
+function doNothing() {
+
+} // no semicolon needed
+
+for (;;) {
+
+} // no semicolon needed 
+```
+
+### Variables
+
+They can be declared using three keywords and they can store any value:
+1. `let` - you can change it's stored value later in the code; 
+2. `const` - constant, cannot be changed;
+3. `var` - old-style.
+
+*There are 7 data types:*
+
+1. `number` for both floating-point and integer numbers;
+2. `string` for strings;
+3. `boolean` for logical values `true/false`;
+4. `null` a type with a single value `null`, meaning empty or does not exist;
+5. `undefined` a type with a single value `undefined`, meaning not assigned;
+6. `object` and `symbol` - for complex data structures and unique identifiers.
+7. `type of` - returns the type for a value.
+
+### Interaction
+
+- `prompt(question[, default])` - it is used to ask a question and the user input or `null` if cancel is pressed;
+- `confirm(question)` - it is used to ask a question and suggest to choose between OK and Cancel. Answer is returned as `true/false`;
+- `alert(message)` - it is used to display a message.
+
+### Operators
+
+* *Arithmetical* : `+, -, *, /, % and **` . The binary `+` concatenates strings as well.
+* *Assignments* : `a = b` or `a *= 2` which is equal to `a = a * 2`.
+* *Ternary* has three parameters: `cond ? resultA : resultB` - If cond is truthy, resultA is displayed, otherwise resultB.
+* *Logical operators* : OR `||`, AND `&&`, NOT `!`. 
+* *Comparisons*: We have to types of equality checks for comparisons, `==` converts the values to numbers and compares them and `===` compares the type and also the value without conversion.
+
