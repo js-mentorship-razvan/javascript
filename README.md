@@ -911,3 +911,76 @@ They can be declared using three keywords and they can store any value:
 * *Logical operators* : OR `||`, AND `&&`, NOT `!`. 
 * *Comparisons*: We have to types of equality checks for comparisons, `==` converts the values to numbers and compares them and `===` compares the type and also the value without conversion.
 
+### Loops 
+
+There are 3 type of loops studied so far: 
+1. ```javascript
+    while (condition) {
+        ... body 
+    }
+    ``` 
+2. ```javascript
+    do {
+        ... body
+    } while (condition);
+   ```
+3. ```javascript
+    for (let i=0; i < 4; i++) {
+        ... body
+    }
+    ```
+
+### The "switch" construct 
+
+Switch is used to replace multiple `if` checks and it uses strict equality checks `===` for comparisons. Example : 
+
+```javascript 
+let age = prompt('How old are you?', 15);
+
+switch (age) {
+    case 15:
+     return("Won't work"); // result of prompt is a string, not a number
+     
+    case '15':
+     return("Not it works!");
+     break;
+
+    default:
+    alert("All other values");
+}
+```
+
+### Functions 
+
+We have learned 3 types of functions so far: 
+1. Function Declaration: 
+```javascript
+function multiply(a, b) {
+    return a * b;
+}
+```
+
+2. Function Expression:
+```javascript
+let multiply = function(a, b) {
+    return a * b; 
+}
+```
+
+3. Arrow function:
+```javascript
+let multiply = (a, b) => a * b;
+``` 
+
+
+## Polyfills 
+
+A polyfill is a browser fallback that allows functionality you expect to work in modern browsers to work in older browsers too. 
+
+### Babel
+
+Babel is a transplier, it rewrites modern JavaScript code into the previous standard so that even the old versions on browsers can read it. 
+
+There are two parts in Babel: 
+1. The transplier program, which rewrites the code.
+2. The polyfill. For new functions we need to write a special script that implements them. This is where polyfills comes into play, they 'fill in' the gap and add missing implementations. 
