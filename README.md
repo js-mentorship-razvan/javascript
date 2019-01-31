@@ -984,3 +984,50 @@ Babel is a transplier, it rewrites modern JavaScript code into the previous stan
 There are two parts in Babel: 
 1. The transplier program, which rewrites the code.
 2. The polyfill. For new functions we need to write a special script that implements them. This is where polyfills comes into play, they 'fill in' the gap and add missing implementations. 
+
+
+
+## Objects
+
+In JavaScript, objects are used to store keyed collections of various data. Objects can be created with figure brackets `{}` or with `new Object();` statement. For example: 
+
+```javascript
+1. let user = {};
+2. let user = new Object();
+``` 
+
+Objects can have an optional list of properties. A property is a key with a value pair, where they `key` can only by a string but `value` can be anything.
+Example: 
+
+```javascript
+let user = {
+    name: 'Razvan',  // the key is name and value is Razvan
+    age: 24,         // the key is age and value is 24
+    sex: 'male',
+};
+```
+
+We can add key and values to objects like so : `user.origin = 'Romania';`  
+
+To add a multiword property we have to use quotes. for example : `"is short": true;`
+
+Dot notation doesn't work for multiword properties. Instead we can use squre bracket notation : `user["is short"] = true;`
+
+We can remove key and value like this : `delete user.name;` 
+
+We can call a property by using object name dot key, for example : `alert(user.age);`
+
+
+### The "for ...in" loop
+
+To walk over all keys of an object we use the following syntax: 
+
+```javascript
+for(key in object) {
+    // executes the body for each key among object properties
+}
+```
+
+*One of the fundamental differences of objects vs primitives is that they are stored and copied "by reference".*
+
+Primitive values are assigned/copied "as a whole value" wheres objects are stored somewhere in the memory and variables have a "reference" to them.
