@@ -1031,3 +1031,27 @@ for(key in object) {
 *One of the fundamental differences of objects vs primitives is that they are stored and copied "by reference".*
 
 Primitive values are assigned/copied "as a whole value" wheres objects are stored somewhere in the memory and variables have a "reference" to them.
+
+
+
+## Garbage collection
+
+All we do in JavaScript takes memory, but memory management is performed automatically and invisibly to us.
+
+### Reachability
+
+Reachability is the main concept of memory management in JavaScript. When a value is not *reachable* anymore (cannot be accessed or used), it is removed by a background process called [Garbage collector](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)).
+
+Let's have a look at an example to see how an object becomes unreachable: 
+
+```javascript
+let user = {
+    name: "Razvan"
+};  // user has a reference to the object 
+
+user = null; // this modifies the object and now " Razvan " cannot be accessed anymore 
+``` 
+
+In the example above, there is no way we can access " Razvan " anymore so the Garbage collector will delete it and free some memory!
+
+
