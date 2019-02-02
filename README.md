@@ -1055,3 +1055,73 @@ user = null; // this modifies the object and now " Razvan " cannot be accessed a
 In the example above, there is no way we can access " Razvan " anymore so the Garbage collector will delete it and free some memory!
 
 
+
+## Symbols
+
+So far we have learned that object property keys can only be string type. Now we will learn that it can also be symbol type.
+
+*Symbol* value represents a _unique identifier_ that can be created using `Symbol()` syntax:  
+
+```javascript
+let id = Symbol();
+```
+
+Symbols can also be given a description, also known as "symbol name". We have to remember tho that even if two or more symbols have the same description, they are different values, for example: 
+
+```javascript
+let id1 = Symbol("mat");
+let id2 = Symbol("mat");
+
+alert(id1 == id2); // will returne false
+```
+
+*Symbols don't auto-convert to string!!!*  To call a symbol, we have to first use the `.toString()` method on it, then it will work. 
+
+### The purpose of a Symbol is to create "hidden" properties of an object.
+
+This comes in handy when we import a library for example and don't want to mess up the code. If we were to use a string value instead of a Symbol, when keys share the same name, they can be overwritten! For example: 
+
+```javascript
+let user = { name : "Razvan" };
+user.id = "Value inside";
+
+// .. now if someone wants to use "id" for their purpose, this will happen:
+
+user.id = "New value inside"; 
+
+// value of user.id has been overwritten ! 
+```
+
+*To use symbol in an object literal, we have to use square brackets, like this:* 
+
+```javascript
+let age = Symbol("age");
+
+let user = {
+    name: "Razvan",
+    [age]: 24  
+}; 
+```
+
+#### Symbols properties doesn't participate in `for..in` loop. That's because they are hidden.
+
+### Global symbols
+
+There is a way tho access the same property within a symbol, even if we said that every symbol is unique. 
+
+To achieve that, there is a _global symbol registry_ where we can create symbols and access them later, in return having the exact same symbol.
+
+`Symbol.for(key)` is used to create or read a symbol in the registry. If there is already one created, it returns it, otherwise it creates a new one. 
+
+Example:
+
+```javascript
+
+let id = Symbol.for("id");  // if it doesn't exist, it has just been created
+
+let idAgain = Symbol.for("id"); // reads it again
+
+alert( id === idAgain); // true 
+``` 
+
+
