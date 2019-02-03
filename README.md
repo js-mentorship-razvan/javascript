@@ -1176,3 +1176,95 @@ sayHi(); // undefined
 
 When "this" is accessed inside an arrow function, the value it's taken from outside (outer function).
 
+
+
+## Object to primitive conversion
+
+To convert an object to a primitive value, we have to use the `ToPrimitive` keyword. There are three variants, also called "hint" to do this : 
+
+1. "string" - when an operation expects a string, for object-to-string conversions. Example : 
+```javascript
+alert(obj);
+// output 
+
+anotherObj[obj] = 33; // using object as a  property key 
+```
+
+2. "number" - when an operation expects a number, for object-to-number conversions. Example :
+```javascript
+let num = Number(obj);  // explicit conversion
+
+let n = +obj; // unary plus 
+let delta = date1 + date2; 
+
+let greater = user1 > user 2 // for comparison
+```
+
+3. "default" - it rarely happens when operator is " not sure " what type to expect.
+
+Some operands can work with both strings and numbers, like `+`, or when comparing something using `> / <`. For example: 
+```javascript
+let sum = date1 + date2; // binary + 
+
+if ( user == 1) {...} // obj == string/number/symbol
+```
+
+*To do the conversion, JavaScript tries to find and call three object methods: 
+1. Call `obj[Symbol.toPrimitive](hint)` if method exists;
+2. Otherwise if hint is a `string` - try `obj.toString()` and `obj.valueOf()` whatever exists;
+3. Or if hint is `number` or `default` - try `obj.valueOf()` and `obj.toString()` whatever exists. 
+
+### Symbol.toPrimitive
+Is a built-in symbol that shoud be used to name the conversion method: 
+
+```javascript
+obj[Symbol.toPrimitive] = function(hint) {
+    // hint can be "string", "number" or "default" and the return will be a primitive value
+}
+```
+
+```javascript
+let user = {
+    name: "Razvan",
+    age: 24,
+
+    [Symbol.toPrimitive](hint) {
+        alert(`hint: ${hint}`);
+        return hint == "string" ? `{name: "${this.name}"}` : this.age;
+    }
+};
+//lets see how the conversion works :
+alert(user); // hint: string -> {name: "Razvan"};
+alert(+user); // hint: number -> 24;
+alert(user + 500); // hint: default -> 524;
+```
+
+### toString/valueOf
+
+If there is no `Symbol.toPrimitive` then JS tries to find them in this order: 
+- `toString -> valueOf` for "string" hint;
+- `valueOf -> toString` otherwise. 
+
+Example: 
+
+```javascript
+let user = {
+    name: "Razvan",
+    age: 24,
+
+    // for hint = "string"
+    toString(){
+        return this.name;
+    },
+
+    // for hint = "number" or "default" 
+    valueOf() {
+        return this.age;
+    }
+};
+
+alert(user); // toString -> "Razvan"
+alert(+user); // valueOf -> 24
+alert(user + 500); // valueOf -> 524
+```
+
