@@ -1125,3 +1125,54 @@ alert( id === idAgain); // true
 ``` 
 
 
+
+## Object methods, "this"
+
+Functions that are stored in object properties are called "methods". Example: 
+
+```javascript
+let user = {
+    name: "Razvan",
+    age: 24 
+    sayHi: function(){
+        alert("Hi there");
+    }
+}; // sayHi property is a function inside an object and it's called method
+```
+
+
+### "this" in methods
+
+*To access the object, a method can use the `this` keyword which value is the object before dot. For example:*
+
+```javascript
+let user = {
+    name: "Razvan",
+    age: 24,
+
+    sayHi() {
+        alert(this.name);
+    }
+};
+
+user.sayHi();  // output will be Razvan 
+``` 
+
+In the example above, during the execution of `user.sayHi()`, the value of `this` will be `user`.
+
+
+### "this" is not bound
+
+In JavaScript, the value of "this" is evaluated during the run-time and it can be anything and used in any function. We can even call the function without an object at all, but the return will be `undefined` : 
+
+```javascript
+function sayHi() {
+    alert(this);
+}
+sayHi(); // undefined
+``` 
+
+### Arrow functions have no "this" 
+
+When "this" is accessed inside an arrow function, the value it's taken from outside (outer function).
+
