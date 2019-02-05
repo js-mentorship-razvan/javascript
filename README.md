@@ -1268,3 +1268,88 @@ alert(+user); // valueOf -> 24
 alert(user + 500); // valueOf -> 524
 ```
 
+
+
+## Constructor, operator "new" 
+
+Constructor functions and "new" operator are used when we need to create many similar objects.
+
+### Constructor function
+
+Constructor functions are real functions that start with capital letter first and should only be executed with "new" operator. Example: 
+
+```javascript
+function User(name) {
+  this.name = name;
+  this.isAdmin = false; 
+}
+
+let user = new User("Razvan");
+
+alert(user.name); // Jack
+alert(user.isAdmin); false
+```
+
+Now `let user = new User("Razvan")` from above, does the following things: 
+1. Creates an empty object that is assigned to `this`.
+2. Executed function body; usually modified `this` and adds new properties to it.
+3. The value of `this` is returned.
+
+So, `let user = new User("Razvan")` becomes : 
+
+```javascript
+let user = {
+    name: "Razvan",
+    isAdmin: false
+};
+```
+*The main purpose of constructors is to implement reusable oject creation code.*
+
+### Return from constructors
+
+Usually they don't have a `return` statement. Their job is to write all necessary data into `this` that automatically becomes the result.
+
+If there is a `return` statement, then: 
+
+1. If `return` is called with object, then it is returned insted of `this`. Example:
+
+```javascript
+function NewUser() {
+ this.name = "Razvan";
+ return {name: "Ionut"}; // <-- returns an object
+}
+alert(new NewUser().name); // <-- returns "Ionut"
+```
+
+2. If `return` is called with a primitive, it's ignored. Example:
+
+```javascript
+function NewUser() {
+    this.name = "Razvan";
+    return 8; // finishes the execution, return this
+   
+   // ... 
+}
+alert(new NewUser().name); // <-- returns "Razvan"
+```
+
+### Methods in constructors
+
+We can add to `this` methods as well, not only properties. Example:
+
+```javascript
+function User(name) {
+    this.name = name;
+
+    this.sayHello = function() {
+        alert("How are you, " + this.name + "?");
+    };  // sayHello is the method in this case
+}
+
+let michael = new User("Michael");
+
+michael.sayHello(); // How are you, Michael?
+```
+
+
+ 
