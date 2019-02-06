@@ -1352,4 +1352,39 @@ michael.sayHello(); // How are you, Michael?
 ```
 
 
+
+## Methods of primitives
+
+In JavaScript it is possible to work with primitives as if there were objects, meaning that we can apply methods on them, even if they are not objects.
+
+Primitives are : `string`, `number`, `boolean`, `symbol`, `null` and `undefined`.
+
+An object is created with `{}` and can store multiple values as properties, such as functions. Example: 
+
+```javascript
+let user = {
+    name: "Razvan",
+    sayHello: function() {
+        alert("Hi friend!");
+    }
+};
+
+user.sayHello(); // Hi friend! 
+``` 
+
+### A primitive as an object
+
+We can apply methods on primitives for a short period of time. When this happens, the primitive in transformed into an "object wrapper" that provides the extra functionality, after which is destroyed. For example: 
+
+```javascript
+let str = "Time to become an object wrapper";
+alert(str.toUpperCase()); // TIME TO BECOME AN OBJECT WRAPPER
+```
+After the method is applied on the primitive, and it is run by the engine, it gets destroyed, meaning that it will go back to it's original form, a primitive. 
+
+
+*Null and undefined are exception to the rule, they can only be primitive.*
+
+
+
  
