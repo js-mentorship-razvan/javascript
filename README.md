@@ -1387,4 +1387,54 @@ After the method is applied on the primitive, and it is run by the engine, it ge
 
 
 
- 
+## Numbers
+
+To reduce the number of mistakes in JavaScript, we avoid writing large numbers such as `let billion = 1000000000`. Instead, we shorten the number by appending the letter `"e"` to the number and specifying the zeroes count:  ` let billion = 1e9 `.
+
+In other words, `"e"` multiplies the number by 1 with the given zeroes count. 
+
+This works for negative numbers as well, for example 1 microsecond (one millionth of a second) would be `0.000001` or `1e-6`, it's exactly the same.
+
+[Hexadecimal](https://en.wikipedia.org/wiki/Hexadecimal) numbers are widely used in JavaScript to represent colors,encode characters and many others. For example : 
+
+```javascript
+alert(0xff); // 255
+alert(0xFF); // 255, case doesn't matter
+```
+
+Binary and octal numeral systems are rarely used, but still supported using `0b` and `0o` prefixes: 
+
+```javascript
+let a = 0b11111111; // binary form of 255
+let b = 0o377; // octal form of 255
+
+alert( a == b ); // true, the same number 255 at both sides
+```
+
+### toString(base)
+
+This method returns a string representation of `num` in the numeral system with the given `base`. Example : 
+
+```javascript
+let num = 255;
+
+alert(num.toString(16)); // ff - hexadecimal base
+alert(num.toString(2)); // 11111111 - binary base
+```
+
+- _base=16_ is used for hex colors, etc, digits can be `0...9` or `A...F`
+- _base=2_ is mostly used for debugging bitwise operations, digits can be `0` or `1`
+- _base=36_ is the maximum, digits can be `0...9` or `A...Z`. Used to shorten url for example.
+
+
+*We can call a method directly on a number using `..` two dots after it. For example : `12345556..toString(36)`*
+
+
+### Rounding
+
+For this we have some built-in functions, like :
+
+1. `Math.floor` - rounds down : `3.4` becomes `3` and `-1.3` becomes `-2`
+2. `Math.ceil`  -rounds up : `3.4` becomes `4` and `-1.3` becomes `-1` 
+3. `Math.round` - rounds to nearest integer `3.4` becomes `3`, `-1.3` becomes `-1`.
+4. `Math.trunc` - removes everything after decimal point without rounding. `3.4` becomes `3` and `-1.3` becomes `-1` 
