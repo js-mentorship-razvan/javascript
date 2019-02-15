@@ -1438,3 +1438,42 @@ For this we have some built-in functions, like :
 2. `Math.ceil`  -rounds up : `3.4` becomes `4` and `-1.3` becomes `-1` 
 3. `Math.round` - rounds to nearest integer `3.4` becomes `3`, `-1.3` becomes `-1`.
 4. `Math.trunc` - removes everything after decimal point without rounding. `3.4` becomes `3` and `-1.3` becomes `-1` 
+
+
+### parseInt and parseFloat
+
+These two methods "read" a number from a string until they can't. This is why they are better then `"+"` or `Number()` which are only doing numeric conversions. 
+
+`parseInt` returns a number/ an integer, example:
+
+```javascript
+alert( parseInt("58inch") ); // 58
+alert( parseInt('1.7m') ); // 1, only the integer is returned
+```
+
+`parseFloat` returns a floating-point number, example:
+
+```javascript
+alert( parseFloat('1.7m') ); // 1.7
+alert( parseFloat('13.5.8') ); // 13.5, the second point stops the reading
+```
+
+### Other math functions
+
+1. `Math.random()` - returns a random number from 0 to 1, not including 1. Example:
+```javascript
+alert( Math.random() ); // 0.32123123123
+alert( Math.random() ); // 0.75231234323
+``` 
+
+2. `Math.max(a, b, c...)` / `Math.min(a, b, c...)` - returns the greatest/smallest from the number of arguments. Example:
+```javascript
+alert( Math.max(5, 3, 124, 932, -65) ); // 932
+alert( Math.min(4, 8, 15) ); // 4
+```
+
+3. `Math.pow(n, power)` - returns `n` raised to the given power. Example:
+```javascript
+alert( Math.pow(2, 3) ); // 8
+```
+
