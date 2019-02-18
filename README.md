@@ -361,10 +361,6 @@ Some comparisons signs are similar to those we have in maths, like:
 * Greater/ less than or equals : ``` a >= b ``` and ``` a <= b ```;
 * Equals : ```a == b``` //  notice the difference between = and double == ; 
 * Not equals : ```a != b``` 
-* Greater/ less than : ``` a > b ``` and ``` a < b ```;
-* Greater/ less than or equals : ``` a >= b ``` and ``` a <= b ```;
-* Equals : ``` a == b ``` //  notice the difference between = and double == ; 
-* Not equals : ``` a != b ``` 
 
 #### Boolean comparison
 
