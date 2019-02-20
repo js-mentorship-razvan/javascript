@@ -1473,3 +1473,67 @@ alert( Math.min(4, 8, 15) ); // 4
 alert( Math.pow(2, 3) ); // 8
 ```
 
+
+
+## Strings
+
+Strings can be represented in three ways: 
+1. Single quotes `' ' `. Example : 
+```javascript
+let str = 'Razvan';
+```
+2. Double quotes ` " " `. Example : 
+```javascript
+let str2 = "Razvan"; 
+```
+3. Backticks `` ``. Example :
+```javascript
+let str3 = `Razvan`; 
+``` 
+
+*If we want quote something inside a string, we have to use different type of quotes than the ones used to represent the string itself.* 
+
+Example:
+
+```javascript
+let quote = "Iphone is made by 'Apple'"; // different type of quotes used and code will run as expected.
+```
+
+*Backticks allow us to display strings on multiple lines. They also allow us to embed any expression or function calls into the string* Example:
+
+```javascript
+function multiply (a, b) {
+    return a * b;
+}
+
+alert (`${multiply(5, 5)} = 5 * 5`)
+```
+
+
+### String length and index
+
+Length and index are two properties that can be very handy in most cases. 
+- Length tells us the length of the string. For example: 
+```javascript
+let str = "Razvan";
+alert(str.length); // 6
+```
+
+- Index is used to get a character from a specific position. We use "[]" for that. It's important to remember that the count always starts from 0, so the first character will always be called with `[0]` Example:
+```javascript
+let str = "Razvan";
+alert(str[1]); // a 
+```
+
+### Changing the case
+
+Strings have two useful methods for changing the case. These are:
+1. `.toLowerCase()` - to change the case into lower case.
+2. `.toUpperCase()` - to change the case into upper case.
+
+*We can also change only one character's case if we want so using the index method.* Example:
+
+```javascript
+let str = "Razvan";
+alert(str[0].toLowerCase()); // R becomes r
+```
