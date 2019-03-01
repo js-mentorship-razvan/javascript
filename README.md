@@ -1537,3 +1537,47 @@ Strings have two useful methods for changing the case. These are:
 let str = "Razvan";
 alert(str[0].toLowerCase()); // R becomes r
 ```
+
+### Searching for a substring 
+
+`str.indexOf(substr, pos)` method looks for a `substr` starting from the given `pos` and returns the position where the match was found, otherwise `-1`. Example : 
+
+```javascript
+let sentence = "My name is Razvan";
+alert(sentence.indexOf("is")); // 8 
+``` 
+
+`str.lastIndexOf(substr, pos)` method searches from the end to the beginning. Example: 
+
+```javascript
+let sentence = "My name is Razvan";
+alert(sentence.lastIndexOf("a")); // 15
+```
+
+`str.includes(substr, pos)` returns `true/false` depending if the given `substr` is included or not. `pos` is optional. Example:
+
+```javascript
+let sentence = "My dog is young";
+alert(sentence.includes("dog")); /true
+```
+
+`strstartsWith` and `str.endsWith` do exactly what their names says: 
+
+```javascript
+alert("Razvan".startsWith("Raz")); // true
+alert("Razvan".endsWith("van")); // true
+```
+
+### Getting a substring
+
+1. `str.slice(start [, end])` - returns the part of the string from `start` to `end` (not including end). If we omit the `end` argument, the method will go until the end of the string. 
+If we use negative values, it means the position is counted from the end of the string.
+Examples:
+
+```javascript
+let str = "unbelievable";
+alert(str.slice(2, 4)); // "be"
+alert(str.slice(2)); // "believable"
+alert(str.slice(-2, -4)); // "ab"
+```
+2. 
