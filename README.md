@@ -1580,4 +1580,41 @@ alert(str.slice(2, 4)); // "be"
 alert(str.slice(2)); // "believable"
 alert(str.slice(-2, -4)); // "ab"
 ```
-2. 
+
+2. `str.substring(start [, end])` - returns the part between `start` and `end`. This method doesn't accept negative arguments. `start` can be greater than `end`. Example:
+
+```javascript
+let str = "unbelievable";
+alert(str.substring(2, 5)); // bel
+alert(str.substring(5, 2)); // bel
+```
+
+3. `str.substr(start [, length])` - returns the part from `start`, with the given `length`. First argument can have negative value.
+
+```javascript
+let str = "unbelievable";
+alert(str.substr(2, 5)); // belie, from pos 2 get 5 characters.
+```
+
+
+### Comparing strings
+
+Strings are compared character-by-character in alpabetical order, but:
+- a lowercase letter is always greater than the uppercase;
+- letters with diacritical marks are "out of order".
+
+In JavaScript, all strings are encoded using [UTF-16](https://en.wikipedia.org/wiki/UTF-16), meaning that each character has a corresponding numeric code. There are some methods that allow us to get the character for the code and back. Example:
+
+1. `str.codePointAt(pos)` -returns the code for the character at `pos`: 
+
+```javascript
+alert("Q".codePointAt(0)); // 81
+alert("q".codePointAt(0)); // 113
+```
+
+2. `String.fromCodePoint(code)` - creates a character by its numeric `code`:
+
+```javascript
+alert(String.fromCodePoint(81)); // Q
+alert(String.fromCodePoint(113)) // q 
+```
