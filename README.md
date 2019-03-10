@@ -1618,3 +1618,80 @@ alert("q".codePointAt(0)); // 113
 alert(String.fromCodePoint(81)); // Q
 alert(String.fromCodePoint(113)) // q 
 ```
+
+*Other string methods* 
+
+`str.repeat(n)` - repeats a string for `n` times.
+`str.trim()`  - removes spaces from the beginning and end of a string. 
+
+
+## Arrays 
+
+Arrays are lists that allow us to store ordered collections of data of any type. 
+
+Declaration:
+
+```javascript
+let arr = new Array();  // or 
+let arr = []; // this is used 99% of the time 
+```
+
+Same as strings, arrays have two specific properties : `length` and `index`.
+
+*Length* property is the array length, meaning the last numeric index plus one. If the length is shorten manually, the array gets truncated.
+
+
+### Array methods
+
+1. `pop` - extracts the last element of the array and returns it: 
+
+```javascript
+let arr = ["1", "2", "3", "9"];
+alert(arr.pop()); // 9
+```
+
+2. `push` - adds elements at the end of the array: 
+
+```javascript
+let arr = ["2", "5"];
+arr.push("Raz");
+alert(arr); // 2, 5, Raz
+```
+
+3. `shift` - extracts the first element and returns it:
+
+```javascript
+let arr = ["Raz", "van"];
+alert(arr.shift()); // Raz
+```
+
+4. `unshift` - add elements to the beginning of the array:
+
+```javascript
+let arr = ["van"];
+arr.unshift("Raz");
+alert(arr); // Raz, van
+```
+
+### Loops 
+
+1. `for` loop is on of the oldest and most used loops: 
+
+```javascript
+let arr = [0, 5, 8, 200];
+
+for (let i=0; i<arr.length; i++) {
+    alert(arr[i]);
+}
+```
+
+2. `for..of` loop doesn't give acces to the number of the current element, just its value but it is shorter.
+
+```javascript
+let arr = [4, 9, 12, 43, 55];
+ 
+ // iterates over array elements
+for (let element of arr) {
+    alert(element);
+}
+```
