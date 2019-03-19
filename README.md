@@ -1695,3 +1695,104 @@ for (let element of arr) {
     alert(element);
 }
 ```
+
+
+## Array methods
+
+### Add/remove items
+
+1. `arr.push(...items)` -adds items to the array;
+2. `arr.pop()` -extracts an item from the end;
+3. `arr.shift()` -extracts an item from the beginning;
+4. `arr.unshift(...items)` -adds items to the beginning;
+5. `arr.splice(index[, deleteCount, elem1, ..., elemN])` - adds, removes and inserts elements. Returns the array of removed elements.
+  
+  `index` - starting position,
+  `deleteCount` - number of elements to be deleted,
+  `elem, ..., elemN` - items to be inserted in place of deleted ones.
+
+Example : 
+
+```javascript
+let arr = ['2', '5', 'John', 'Winston'];
+// start at index 0 and remove the first 2 elements. Then, replace them with the new elements
+arr.splice(0, 2, 'My', 'name', 'is');
+alert(arr);  // output will be : [My,name,is,John,Winston]
+```
+
+*Negative indexes are allowed. They specify the position starting from the end with -1 being the before last.*
+
+6. `arr.slice(start, end)` - Similar to splice method but shorted and makes subarrays instead of substrings. Can also accept negative indexes. Example: 
+
+```javascript
+let arr = ['w', 'o', 'r', 'd'];
+alert(arr.slice(1,3)); // output : o,r   -Because end is not included
+```
+
+7. `arr.concat(arg1, arg2, ...argN)` -joins the array with other arrays/items. Example:
+
+```javascript
+let arr = ['w', 'o', 'r']; 
+alert(arr.concat('d','s')); // output : w,o,r,d,s
+```
+
+8. `arr.forEach(function(item, index, array))` - allows you to run a function for every item of the array. Example:
+
+```javascript
+let arr = ['w', 'o', 'r', 'd', 's'];
+arr.forEach(function(element) {
+    alert(element);
+}); // 'w', 'o', 'r', 'd', 's'
+```
+
+
+### Searching in the array
+
+1. `arr.indexOf(item, from)` - searcheas for `item` starting from index `from` and returns the index where found, otherwise `-1`;
+2. `arr.lastIndexOf(item, from)` - same as above, but searches from right to left;
+3. `arr.includes(item, from)` - same as `indexOf` but returns `true` if found. 
+
+**All these 3 methods uses strict comparison `===` when searching!!!**
+
+4. `arr.find(function(item, index, array))` - useful when searching in an array of objects for a specific condition. It returns `true` if found and stops the search, otherwise returns `undefined`. 
+
+- `item` is the element;
+- `index` is the index(position);
+- `array` is the array itself. 
+
+Example:
+
+```javascript
+let users = [
+    {id: 1, name: "Johnny"},
+    {id: 2, name: "Petrescu"},
+    {id: 3, name: "Sullivan"}
+];
+
+let FindUser = users.find(item => item.id == 2);
+
+alert(user.name); // Petrescu
+```
+
+5. `arr.findIndex(function(item, index, array))` - same as `arr.find` but returns the index where the element was found or `-1` if not found. 
+
+6. `arr.filter(function(item, index, array))` - continues to iterate for all elements even if `true` is already returned. Example:
+
+```javascript
+let users = [
+    {id: 1, name: "Johnny"},
+    {id: 2, name: "Petrescu"},
+    {id: 3, name: "Sullivan"}
+];
+
+// returns the array of the first two users 
+let smallUsers = users.filter(item => item.id < 3);
+
+alert(smallUsers.length); // 2 
+```
+
+7. `arr.find(function(item, index, array))` - same as `filter` but stops when `true` is found. 
+
+
+### Transform an array 
+
