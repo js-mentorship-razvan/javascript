@@ -1748,7 +1748,7 @@ arr.forEach(function(element) {
 
 ### Searching in the array
 
-1. `arr.indexOf(item, from)` - searcheas for `item` starting from index `from` and returns the index where found, otherwise `-1`;
+1. `arr.indexOf(item, from)` - searches for `item` starting from index `from` and returns the index where found, otherwise `-1`;
 2. `arr.lastIndexOf(item, from)` - same as above, but searches from right to left;
 3. `arr.includes(item, from)` - same as `indexOf` but returns `true` if found. 
 
