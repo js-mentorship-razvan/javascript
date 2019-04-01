@@ -1796,3 +1796,125 @@ alert(smallUsers.length); // 2
 
 ### Transform an array 
 
+1. `arr.map(function(item, index, array))` - calls the function for each element of the array and returns the array of results. Example:
+
+```javascript
+let lengths = ["Razvan", "John", "David", "Ion"].map(item => item.length);
+alert(lengths); // 6,4,5,3
+```
+
+2. `arr.sort()` - sorts the array in place. *Items are sorted as strings by default*. To use our own sorting order, we need a function of two arguments as the agument of `arr.sort()`. Example: 
+
+```javascript
+function ascendingOrder(a,b) {
+    if (a > b) return 1;
+    if (a == b) return 0;
+    if (a < b) return -1;
+}
+let arr = [2,1,5,99,-33,-52,22];
+arr.sort(ascendingOrder);
+alert(arr); // -52,-33,1,2,5,22,99
+```
+
+3. `arr.reverse()` - reverses the order of elements in array and returns the reversed array. Example: 
+
+```javascript
+let arr = [1,5,7,9,22];
+arr.reverse();
+alert(arr); //22,9,7,5,1
+```
+
+4. `str.split(separator, delim)` - splits a string into an array by the given delimiter `delim` which is optional. Example: 
+
+```javascript
+let arr = 'John, Bob, Robert, Castravete, Ceausescu'.split(', ', 3);
+alert(arr); // John, Bob, Robert 
+```
+*Split into letters is achieved by using an empty `''` as argument.* Example:
+
+```javascript
+let name = "Razvan"; 
+alert(name.split('')); // R,a,z,v,a,n
+```
+
+5. `arr.join(separator)` - creates a string of `arr` items glued by selected `separator`. Example: 
+
+```javascript
+let arr = ["John", "David", "Pascal"];
+alert(arr.join(';')); // John;David;Pascal
+```
+
+6. `arr.reduce(function(previousValue, item, index, array)), initial)` - used to calculate a single value based on the array.
+- `item` is the current arrat item;
+- `index` is the position;
+- `array` is the array;
+- `previousValue` is the result of the previous function call, `initial` for the first call;
+- `initial` is the initial value and it can be skipped.
+
+Example: 
+
+```javascript
+let arr = [2,5,6,4]; 
+let total = arr.reduce((sum, current) => sum + current, 0); 
+alert(total); // 17
+```
+7. `arr.reduceRight` does the same thing as `arr.reduce` but goes from right to left.
+
+
+## Array.isArray
+
+Arrays are based on objects and so if we use `typeof` for them, we will get 'object' as a result. Example:
+
+```javascript
+alert(typeof []); // object
+```
+
+*This is why we use `Array.isArray(value)` to check if type of an item is array or not.* Example:
+
+```javascript
+alert(Array.isArray([])); //true
+```
+
+## 'thisArg'
+
+Most array methods that call functions - like `find`, `filter`, `map` - except `sort`, accept an optional additional parameter called `thisArg`. 
+
+Let's see the syntax for these methods:
+
+```javascript
+arr.find(func, thisArg);
+arr.filter(func, thisArg);
+arr.map(func, thisArg)
+```
+### The value of `thisArg` becomes `this` for `func`.
+
+Example where `thisArg` comes in handy:
+
+```javascript
+let user = {
+    age: 24,
+    younger(otherUser) {
+        return otherUser.age < this.age;
+    }
+};
+
+let users = [
+    {age: 12},
+    {age: 25},
+    {age: 21},
+    {age: 55},
+    {age: 9}
+];
+
+// find all users younger than user 
+
+let youngerUsers = users.filter(user.younger, user);
+alert(youngerUsers.length); // 3
+```
+
+In the example above, `user` is basically `thisArg` which gives the function context. Without it, the `user.younger` would not work as a standalone function, because `user.younger` is a method inside an object and it would assume `this = undefined` giving an error.
+
+
+
+
+
