@@ -1916,5 +1916,154 @@ In the example above, `user` is basically `thisArg` which gives the function con
 
 
 
+## Set
+
+[Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) is a collection of unique values. Its main methods are: 
+
+- `new Set(iterable)` - creates the set, optionally from an array of values;
+- `set.add(value)` - adds a value, returns the set itself;
+- `set.delete(value)` - deletes a value, returns `true` if `value` existed at the moment of the call, or `false` otherwise;
+- `set.has(value)` - checks if a `value` is included in `set` and returns `true` if so and `false` otherwise;
+- `set.clear()` - removes everything from the set;
+- `set.size` - is the elements count. 
+
+Example using set to check for unique values:
+
+```javascript
+let set = new Set();
+
+let marry = { name: "Marry" };
+let john = { name: "John" };
+let rob = { name: "Rob" };
+let tom = { name: "Tom" };
+
+// lets see how many times each person comes to visit us 
+
+set.add(john);
+set.add(marry);
+set.add(rob);
+set.add(john);
+set.add(tom);
+set.add(rob);
+set.add(marry);
+
+// lets see the size of our set. Remember, set only stores unique values
+
+console.log(set.size); // 4
+
+// sets allow us to iterate over them 
+
+for (let user of set ) {
+    console.log(user.name); // John, Marry, Rob, Tom
+}
+```
+
+### Iteration over Set 
+
+We can use `for..of` or `forEach` to iterate over sets. Example: 
+
+```javascript
+let set = new Set(["milk", "cow", "banana", "lamb"]);
+
+for (let value of set) {
+    console.log(value); // milk, cow, banana, lamb
+}
+
+// same with forEach
+
+set.forEach((value, valueAgain, set) => {
+    console.log(value); // milk, cow, banana, lamb
+});
+```
 
 
+
+## Map 
+
+[Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) is a collection of keyed data items, just like `Object`, but `Map` can store keys of any type.  The main methods are:
+
+- `new Map()` - creates the map;
+- `map.set(key, value)` - stores the value by the key;
+- `map.get(key)` - returns the value by the key, `undefined` if `key` doesn't exist;
+- `map.has(key)` - returns `true` if the `key` exists, `false` otherwise;
+- `map.delete(key)` - removes the value by the `key`;
+- `map.clear()` - removes everything from the `Map`;
+- `map.size` - returns the number of elements inside the `Map`.
+
+Example:
+
+```javascript
+let map = new Map();
+
+map.set('1', 'str1'); // a string key;
+map.set(1, 'num1'); // a numeric key;
+map.set(true, 'bool1') // a boolean key;
+
+// Unlike objects, keys are not converted to strings!
+
+console.log(map.get(1)) // 'num1'
+console.log(map.get('1')) // 'str1'
+console.log(map.size) // 3 
+```
+
+*Map can use objects as keys!* 
+
+```javascript
+let rob = {name: "Rob"}; 
+
+let map = new Map();
+
+// rob is the key for the map
+map.set(rob, 10); 
+console.log(map.get(rob)); // 10
+```
+
+*Every `map.set` call returns the map itself, so we can "chain" the calls like so :*
+
+```javascript
+map.set('1', 'str1)
+    .set(1, 'num1')
+    .set(true, 'bool1');
+```
+
+
+### Iteration over Map
+
+For iteration, we have 3 methods: 
+
+1. `map.keys()` - returns an iterable for keys; 
+2. `map.values()` - returns an iterable for values;
+3. `map.entries()` - returns an iterable for entries `[key, value]`, it's used by default in `for..of`.
+
+Example:
+
+```javascript
+
+let shoppingList = new Map([
+    ['cucumber', 2],
+    ['tomatoes', 1],
+    ['garlic', 3],
+    ['onion', 1],
+    ['potatoes', 4]
+]);
+
+//iterate over keys (products)
+for (let products of shoppingList.keys()){
+    console.log(products); // cucumber, tomatoes, garlic, onion, potatoes
+}
+
+//iterate over values (price)
+for (let price of shoppingList.values()){
+    console.log(price); // 2, 1, 3, 1, 4
+}
+
+//iterate over [key, value] entries
+for (let entry of shoppingList) {
+    console.log(entry); // ["cucumber", 2],["tomatoes", 1] and so on
+}
+
+//Map also has a `forEach` built-in method
+shoppingList.forEach( (value, key, map) => {
+    console.log(`${key}: ${value}`); // "cucumber: 2", "tomatoes: 1" and so on
+});
+```
